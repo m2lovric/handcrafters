@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+$Source-Sans-Pro: 'Source Sans Pro', sans-serif;
+
+$green: #1dd1a1;
+$blue: #1e90ff;
+
+.btn-blue {
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-weight: 700;
+  background-color: $blue;
+  border-radius: 5px;
+  border: none;
+  @include flex-center();
+}
+
+#root {
+  position: relative;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $Source-Sans-Pro;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}

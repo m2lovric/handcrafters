@@ -1,0 +1,26 @@
+@import './sass/helpers.scss';
+
+.photo-grid-container {
+  width: 100%;
+  height: calc(100vh - 140px);
+  overflow: hidden;
+}
+
+.photo-grid {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: 900px;
+
+  img {
+    width: 230px;
+    height: auto;
+    margin-bottom: 20px;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

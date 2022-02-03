@@ -8,27 +8,32 @@ services:
     # Wait until the database is initialized, then start the server
     command: bash -c 'while !</dev/tcp/database/5432; do sleep 1; done; uvicorn Server.main:app --host 0.0.0.0'
     environment:
-      - DATABASE_URL=postgresql://admin:password@db:5432/handcrafters_db    
+      - DATABASE_URL=postgresql://user:password@database:5432/handcrafters_db
     volumes:
       - .:/Server
     ports:
-      - 8008:8000
+      - "8008:8000"
     depends_on:
       - database
+    restart: always
+    networks:
+      - default
       
     # Postgres database
   database:
       image: postgres:13-alpine
       container_name: handcrafters_database
       environment:
-        - POSTGRES_USER=admin
+        - POSTGRES_USER=user
         - POSTGRES_PASSWORD=password
         - POSTGRES_DB=handcrafters_db
       volumes:
         - database_data:/var/lib/postgresql/data
       expose:
         - 5432
+      networks:
+        - default
 
-# Persitent data
+# Persistent data
 volumes:
   database_data:

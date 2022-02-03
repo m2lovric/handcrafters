@@ -5,6 +5,7 @@
 
 # Environment
 venv
+.idea
 **/__pycache__
 
 # Testing

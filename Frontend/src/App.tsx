@@ -1,11 +1,10 @@
-import React from 'react';
 import { Layout } from './components/Layout';
 import './App.scss';
 
 function App() {
   return (
     <Layout>
-      <main className='container'>
+      <main className='container app'>
         <section className='photo-grid-container'>
           <section className='photo-grid'>
             <img
@@ -38,6 +37,29 @@ function App() {
             <img src='./images/varun-gaba-dcgB3CgidlU-unsplash.jpg' alt='' />
             <img src='./images/alex-motoc-0POwK6iAiRQ-unsplash.jpg' alt='' />
           </section>
+        </section>
+        <section className='registration'>
+          <form className='login form'>
+            <h1>Login</h1>
+            <input type='text' name='username' id='' placeholder='Username' />
+            <input type='text' name='password' id='' placeholder='Password' />
+            <button type='submit' className='form--btn btn-blue'>
+              Log in
+            </button>
+          </form>
+          <section className='mid'>
+            <div className='line'></div>
+            <p>or</p>
+            <div className='line'></div>
+          </section>
+          <form className='signup form'>
+            <h1>Signup</h1>
+            <input type='text' name='username' id='' placeholder='Username' />
+            <input type='text' name='password' id='' placeholder='Password' />
+            <button type='submit' className='form--btn btn-blue'>
+              Sign up
+            </button>
+          </form>
         </section>
       </main>
     </Layout>

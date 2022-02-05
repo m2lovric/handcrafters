@@ -18,12 +18,11 @@ $green: #1dd1a1;
 $blue: #1e90ff;
 
 .btn-blue {
-  width: 100px;
   height: 30px;
   color: white;
   font-weight: 700;
   background-color: $blue;
-  border-radius: 5px;
+  border-radius: 3px;
   border: none;
   @include flex-center();
 }

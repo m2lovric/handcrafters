@@ -12,9 +12,6 @@ const Layout = ({ children }: LayoutProps) => {
         <div className='container'>
           <h1 className='nav--logo'>handcrafters</h1>
           <section className='nav--links'>
-            <Link to='/login' className='btn-blue'>
-              Login
-            </Link>
             <Link to='/'>Home</Link>
             <a href='/'>Messages</a>
             <a href='/'>Profile</a>

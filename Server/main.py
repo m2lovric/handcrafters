@@ -1,17 +1,20 @@
-from fastapi import Depends, FastAPI, HTTPException
-from sqlalchemy.orm import Session
 from typing import List
 
-from . import crud, models, schemas
-from .database import SessionLocal, engine
+from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy.orm import Session
 
-models.Base.metadata.create_all(bind=engine)
+import crud
+import models
+import schemas
+import database
+
+models.database.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(title="Handcrafters")
 
 
 def get_db():
-    db = SessionLocal()
+    db = database.SessionLocal()
     try:
         yield db
     finally:

@@ -1,5 +1,6 @@
 import { Layout } from './components/Layout';
-import './App.scss';
+import './sass/pages/App.scss';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -40,9 +41,8 @@ function App() {
         </section>
         <section className='registration'>
           <form className='login form'>
-            <h1>Login</h1>
             <input type='text' name='username' id='' placeholder='Username' />
-            <input type='text' name='password' id='' placeholder='Password' />
+            <input type='password' name='password' placeholder='Password' />
             <button type='submit' className='form--btn btn-blue'>
               Log in
             </button>
@@ -52,14 +52,9 @@ function App() {
             <p>or</p>
             <div className='line'></div>
           </section>
-          <form className='signup form'>
-            <h1>Signup</h1>
-            <input type='text' name='username' id='' placeholder='Username' />
-            <input type='text' name='password' id='' placeholder='Password' />
-            <button type='submit' className='form--btn btn-blue'>
-              Sign up
-            </button>
-          </form>
+          <Link to='/signup' className='btn-signup'>
+            Sign Up
+          </Link>
         </section>
       </main>
     </Layout>

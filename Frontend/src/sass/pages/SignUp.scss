@@ -1,0 +1,74 @@
+@import '../helpers.scss';
+
+.signup {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 124px);
+
+  &--left {
+    width: 40%;
+    background: linear-gradient(45deg, $blue-darker, $blue);
+  }
+
+  &--right {
+    width: 60%;
+
+    .form {
+      width: 100%;
+      &--btn {
+        background-color: $blue;
+        width: 140px;
+        height: 40px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        align-self: flex-start;
+        margin-left: 100px;
+        font-weight: 700;
+      }
+
+      &__section {
+        width: 100%;
+        padding: 0 100px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+
+        &--input {
+          display: flex;
+          flex-direction: column;
+          width: 48%;
+
+          label {
+            color: $gray-dark;
+            font-weight: 700;
+            color: $blue-dark;
+            margin-bottom: 10px;
+          }
+
+          input {
+            border: 1px solid $gray;
+          }
+        }
+      }
+    }
+  }
+
+  .have-acc {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 20px;
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    a {
+      font-size: 1.1rem;
+      color: $blue-dark;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+  }
+}

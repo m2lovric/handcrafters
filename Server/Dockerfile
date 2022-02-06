@@ -6,11 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Define work directory
-WORKDIR .
+WORKDIR ./Server
+
+# Copy the Server project folder into the container's working directory
+COPY . .
 
 # Install python 3 dependencies
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the project
-COPY . .

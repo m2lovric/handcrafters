@@ -5,9 +5,9 @@ FROM node:16.5-alpine
 RUN apk update && apk add bash
 
 # Define work directory
-WORKDIR .
+WORKDIR ./Frontend
 
-# Copy the project
+# Copy the Frontend project folder into the container's working directory
 COPY . .
 
 # NPM pipeline

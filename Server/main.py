@@ -1,16 +1,26 @@
 from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 import crud
 import models
 import schemas
 import database
+import config
 
 models.database.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(title="Handcrafters")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=config.origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def get_db():

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignUp from './SignUp';
+import { Profile, SignUp } from './pages';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,6 +10,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

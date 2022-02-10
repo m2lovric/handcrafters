@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import './sass/pages/SignUp.scss';
+import { Layout } from '../components/Layout';
+import '../sass/pages/SignUp.scss';
 import axios from 'axios';
 
 // interface IUser {

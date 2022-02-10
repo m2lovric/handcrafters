@@ -1,4 +1,4 @@
-import './Layout.scss';
+import '../sass/Layout.scss';
 import { Link } from 'react-router-dom';
 
 interface LayoutProps {
@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
           <section className='nav--links'>
             <Link to='/'>Home</Link>
             <a href='/'>Messages</a>
-            <a href='/'>Profile</a>
+            <Link to='/profile'>Profile</Link>
             <input type='search' placeholder='Search' />
           </section>
         </div>

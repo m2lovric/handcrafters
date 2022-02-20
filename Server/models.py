@@ -11,5 +11,6 @@ class User(database.Base):
     surname = Column(String)
     birth_date = Column(String)
     email = Column(String, unique=True, index=True)
+    username = Column(String, unique=True)
     password = Column(String)
-    active = Column(Boolean, default=True)
+    disabled = Column(Boolean, default=True)

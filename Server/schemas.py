@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -9,6 +9,7 @@ class UserBase(BaseModel):
     surname: str
     birth_date: str
     email: str
+    username: str
 
 
 class UserCreate(UserBase):
@@ -17,7 +18,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
-    active: bool
+    disabled: Optional[bool] = None
 
     class Config:
         orm_mode = True

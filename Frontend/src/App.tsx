@@ -1,8 +1,33 @@
 import { Layout } from './components/Layout';
 import './sass/pages/App.scss';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
+
+interface loginData {
+  username: string;
+  password: string;
+}
 
 function App() {
+  const [loginData, setLoginData] = useState<loginData>({
+    username: '',
+    password: '',
+  });
+
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
+    try {
+      const res = await axios.post('http://localhost:8008/token', {
+        loginData,
+      });
+      const data = res.data();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <Layout>
       <main className='container app'>
@@ -40,9 +65,23 @@ function App() {
           </section>
         </section>
         <section className='registration'>
-          <form className='login form'>
-            <input type='text' name='username' id='' placeholder='Username' />
-            <input type='password' name='password' placeholder='Password' />
+          <form className='login form' onSubmit={handleLogin}>
+            <input
+              type='text'
+              placeholder='Username'
+              value={loginData.username}
+              onChange={(e) =>
+                setLoginData({ ...loginData, username: e.target.value })
+              }
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              value={loginData.password}
+              onChange={(e) =>
+                setLoginData({ ...loginData, password: e.target.value })
+              }
+            />
             <button type='submit' className='form--btn btn-blue'>
               Log in
             </button>

@@ -15,6 +15,8 @@ import axios from 'axios';
 const SignUp = () => {
   useEffect(() => {
     const signupForm: HTMLFormElement = document.querySelector('.form')!;
+    const usernameInput: HTMLInputElement =
+      document.querySelector('.username')!;
     const nameInput: HTMLInputElement = document.querySelector('.name')!;
     const surnameInput: HTMLInputElement = document.querySelector('.lastname')!;
     const birthDateInput: HTMLInputElement = document.querySelector('.date')!;
@@ -29,7 +31,7 @@ const SignUp = () => {
         method: 'post',
         url: 'http://localhost:8008/users/',
         headers: {
-          'Access-Control-Allow-Origin': 'http://127.0.0.1:3000/',
+          'Access-Control-Allow-Origin': 'http://127.0.0.1:8008/',
           'Content-Type': 'application/json',
         },
         data: {
@@ -37,6 +39,7 @@ const SignUp = () => {
           surname: surnameInput.value,
           birth_date: birthDateInput.value.toString(),
           email: emailInput.value,
+          username: usernameInput.value,
           password: passwordInput.value,
         },
       }).then((res) => {
@@ -53,6 +56,11 @@ const SignUp = () => {
         <section className='signup--right'>
           <form className='form'>
             <section className='form__section'>
+              <article className='form__section--input'>
+                <label htmlFor='username'>Username</label>
+                <input type='text' name='username' className='username' />
+              </article>
+
               <article className='form__section--input'>
                 <label htmlFor='name'>First Name</label>
                 <input type='text' name='name' className='name' />

@@ -1,7 +1,8 @@
 from pydantic import BaseSettings, Field
 
 origins = ["http://localhost:3000",
-           "https://localhost:3000"]
+           "https://localhost:3000",
+           "https://localhost:8008"]
 
 
 class Settings(BaseSettings):

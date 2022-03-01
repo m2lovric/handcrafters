@@ -3,6 +3,7 @@ import './sass/pages/App.scss';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { url } from 'inspector';
 
 interface loginData {
   username: string;
@@ -18,8 +19,16 @@ function App() {
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8008/token', {
-        loginData,
+      const res = await axios({
+        url: 'http://localhost:8008/token',
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          ...loginData,
+        },
       });
       const data = res.data();
       console.log(data);
